@@ -1,0 +1,52 @@
+{
+  "name": "pde",
+  "displayName": "pde",
+  "description": "",
+  "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/zenpk/pde"
+  },
+  "publisher": "zenpk",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pde.genRandom",
+        "title": "PDE: Generate random string (numeric + lower)"
+      },
+      {
+        "command": "pde.genRandomUpper",
+        "title": "PDE: Generate random string (numeric + lower + upper)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "login": "vsce login zenpk",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
