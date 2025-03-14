@@ -5,11 +5,6 @@ export function generateRandom(
   includeUppercase: boolean,
   usable?: string
 ): string {
-  console.log(length);
-  console.log(includeNumber);
-  console.log(includeLowercase);
-  console.log(includeUppercase);
-  console.log(`========== ${usable} ==========`);
   let pool = "";
   if (includeNumber) {
     pool += "0123456789";

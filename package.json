@@ -2,7 +2,7 @@
   "name": "pde",
   "displayName": "pde",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "url": "https://github.com/zenpk/pde"
   },
@@ -13,7 +13,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -24,6 +26,14 @@
       {
         "command": "pde.genRandomUpper",
         "title": "PDE: Generate random string (numeric + lower + upper)"
+      },
+      {
+        "command": "pde.restartVim",
+        "title": "PDE: Restart Vim plugin"
+      },
+      {
+        "command": "pde.temp",
+        "title": "PDE: temp"
       }
     ]
   },
@@ -38,6 +48,9 @@
     "package": "vsce package",
     "publish": "vsce publish"
   },
+  "extensionDependencies": [
+    "vscodevim.vim"
+  ],
   "devDependencies": {
     "@types/vscode": "^1.98.0",
     "@types/mocha": "^10.0.7",
