@@ -2,7 +2,7 @@
   "name": "pde",
   "displayName": "pde",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/zenpk/pde"
   },
@@ -32,8 +32,8 @@
         "title": "PDE: Restart Vim plugin"
       },
       {
-        "command": "pde.temp",
-        "title": "PDE: temp"
+        "command": "pde.goPrintErrorWithCode",
+        "title": "PDE: Print a weird style Go error"
       }
     ]
   },

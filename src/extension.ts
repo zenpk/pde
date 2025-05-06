@@ -78,10 +78,31 @@ export async function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const goPrintErrorWithCode = vscode.commands.registerCommand(
+    "pde.goPrintErrorWithCode",
+    async () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      }
+
+      const randomCode = genRandom(8, true, true, false);
+      const insertStr = `if err != nil {
+    return nil, fmt.Errorf("[#${randomCode}] %w", err)      
+}`;
+
+      const position = editor.selection.active;
+      await editor.edit((editBuilder) => {
+        editBuilder.insert(position, insertStr);
+      });
+    }
+  );
+
   context.subscriptions.push(
     genRandomCommand,
     genRandomUpperCommand,
-    restartVimCommand
+    restartVimCommand,
+    goPrintErrorWithCode
   );
 }
 
