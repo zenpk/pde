@@ -87,14 +87,13 @@ export async function activate(context: vscode.ExtensionContext) {
       }
 
       const randomCode = genRandom(8, true, true, false);
-      const insertStr = `if err != nil {
+      const snippetContent = `if err != nil {
     return nil, fmt.Errorf("[#${randomCode}] %w", err)      
 }`;
-
-      const position = editor.selection.active;
-      await editor.edit((editBuilder) => {
-        editBuilder.insert(position, insertStr);
-      });
+      // add a new line below current cursor position
+      await vscode.commands.executeCommand("editor.action.insertLineAfter");
+      const snippetString = new vscode.SnippetString(snippetContent);
+      editor.insertSnippet(snippetString);
     }
   );
 
